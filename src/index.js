@@ -21,12 +21,11 @@ function listItemComponent({ id, description, completed }) {
   checkbox.checked = completed;
   checkbox.id = id;
 
-  const label = document.createElement('label');
-  label.htmlFor = id;
-  label.innerText = description;
+  const text = document.createElement('input');
+  text.value = description;
 
   node.appendChild(checkbox);
-  node.appendChild(label);
+  node.appendChild(text);
   return node;
 }
 
