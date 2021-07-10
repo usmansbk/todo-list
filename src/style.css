@@ -34,6 +34,15 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  color: black;
+  opacity: 1;
+}
+
 .container {
   background-color: white;
   border-radius: 3px;
