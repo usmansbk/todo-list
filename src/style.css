@@ -31,20 +31,23 @@ body {
 }
 
 .list-header {
-  padding: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .list-title {
+  line-height: 20px;
   color: #545862;
   font-weight: 400;
+  padding: 1rem;
 }
 
 .todo {
   font-size: 1rem;
-  padding: 0 3em;
+  padding: 0 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   box-sizing: content-box;
+  display: flex;
+  align-items: center;
 }
 
 .edit {
@@ -60,11 +63,9 @@ body {
 }
 
 .toggle {
-  background-color: transparent;
   cursor: pointer;
   height: 16px;
   width: 16px;
-  margin: 17px 0;
   border-radius: 2px;
   border: 2px solid #c1c1c3;
 }
