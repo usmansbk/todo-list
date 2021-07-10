@@ -136,11 +136,7 @@ button:active {
 }
 
 .drag-button {
-  cursor: grab;
-}
-
-.drag-button:active {
-  cursor: grabbing;
+  cursor: all-scroll;
 }
 
 .refresh-button {

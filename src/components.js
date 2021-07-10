@@ -37,7 +37,15 @@ export function listItemComponent({ description, completed }) {
   node.appendChild(checkbox);
   node.appendChild(text);
   node.appendChild(dragButton);
-  node.appendChild(deleteButton);
+
+  text.addEventListener('focus', () => {
+    dragButton.remove();
+    node.appendChild(deleteButton);
+  });
+  text.addEventListener('blur', () => {
+    deleteButton.remove();
+    node.appendChild(dragButton);
+  });
 
   return node;
 }
