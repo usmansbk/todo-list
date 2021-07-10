@@ -24,6 +24,10 @@ body {
 .container {
   background-color: white;
   border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  max-width: 500px;
+  width: 100%;
 }
 
 .list-header {
@@ -43,7 +47,36 @@ body {
 }
 
 .label {
+  width: 100%;
   padding: 15px 0;
   border: none;
   font-weight: 300;
+}
+
+.toggle {
+  background-color: transparent;
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+  margin: 17px 0;
+  border-radius: 2px;
+  border: 2px solid #c1c1c3;
+}
+
+.list-footer {
+  background-color: #f1f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clear-button {
+  border: none;
+  outline: none;
+  appearance: none;
+  margin: 1rem auto;
+  background-color: transparent;
+  opacity: 0.5;
+  font-weight: 300;
+  cursor: pointer;
 }

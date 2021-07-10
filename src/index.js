@@ -21,7 +21,7 @@ function listItemComponent({ id, description, completed }) {
   checkbox.type = 'checkbox';
   checkbox.checked = completed;
   checkbox.id = id;
-  checkbox.classList.add('checkbox');
+  checkbox.classList.add('toggle');
 
   const text = document.createElement('input');
   text.value = description;
