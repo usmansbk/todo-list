@@ -25,7 +25,7 @@ function listItemComponent({ id, description, completed }) {
 
   const text = document.createElement('input');
   text.value = description;
-  text.classList.add('label');
+  text.classList.add('edit');
 
   node.appendChild(checkbox);
   node.appendChild(text);

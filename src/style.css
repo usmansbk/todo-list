@@ -44,13 +44,19 @@ body {
   font-size: 1rem;
   padding: 0 3em;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: content-box;
 }
 
-.label {
+.edit {
+  height: 20px;
+  line-height: 20px;
   width: 100%;
   padding: 15px 0;
   border: none;
+  outline: none;
   font-weight: 300;
+  resize: none;
+  box-shadow: none;
 }
 
 .toggle {
@@ -79,4 +85,8 @@ body {
   opacity: 0.5;
   font-weight: 300;
   cursor: pointer;
+}
+
+.clear-button:hover {
+  text-decoration: underline;
 }
