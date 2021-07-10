@@ -68,7 +68,7 @@ button:active {
 
 .todo {
   font-size: 1rem;
-  padding: 0 20px;
+  padding-left: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   box-sizing: content-box;
   display: flex;
@@ -122,4 +122,12 @@ button:active {
   justify-content: center;
   align-items: center;
   padding: 12px;
+}
+
+.drag-button {
+  cursor: grab;
+}
+
+.drag-button:active {
+  cursor: grabbing;
 }
