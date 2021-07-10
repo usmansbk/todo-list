@@ -14,6 +14,11 @@ ul li {
   list-style: none;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   background-color: #f4f5f7;
   display: flex;
@@ -31,6 +36,8 @@ body {
 }
 
 .list-header {
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
