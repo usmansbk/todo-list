@@ -1,12 +1,12 @@
-import './style.css';
-
-function component() {
-  const element = document.createElement('div');
-
-  element.innerHTML = 'Welcome to Microverse';
-  element.classList.add('hello');
-
-  return element;
-}
-
-document.body.appendChild(component());
+const ITEMS = [
+  {
+    description: 'Wash the dishes',
+    completed: false,
+    index: 0,
+  },
+  {
+    description: 'Complete To Do list project',
+    completed: false,
+    index: 1,
+  },
+];
