@@ -37,9 +37,6 @@ cd ./todo-list
 
 ```cmd
 npm run build
-```
-
-```cmd
 npm install
 ```
 
