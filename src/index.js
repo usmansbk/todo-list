@@ -15,6 +15,7 @@ const ITEMS = [
 
 function listItemComponent({ id, description, completed }) {
   const node = document.createElement('li');
+  node.classList.add('list-item');
 
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
