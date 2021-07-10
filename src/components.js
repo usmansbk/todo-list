@@ -12,14 +12,11 @@ export function iconButton(name) {
   return node;
 }
 
-export function listItemComponent({ id, description, completed }) {
+export function listItemComponent({ description, completed }) {
   const node = document.createElement('li');
   node.classList.add('todo');
 
-  const checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  checkbox.checked = completed;
-  checkbox.id = id;
+  const checkbox = iconButton(completed ? 'done' : 'check_box_outline_blank');
   checkbox.classList.add('toggle');
 
   const text = document.createElement('input');

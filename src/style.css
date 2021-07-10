@@ -72,7 +72,6 @@ button:active {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   box-sizing: content-box;
   display: flex;
-  gap: 16px;
   align-items: center;
 }
 
@@ -86,14 +85,6 @@ button:active {
   font-weight: 300;
   resize: none;
   box-shadow: none;
-}
-
-.toggle {
-  cursor: pointer;
-  height: 16px;
-  width: 16px;
-  border-radius: 2px;
-  border: 2px solid #c1c1c3;
 }
 
 .list-footer {
@@ -122,6 +113,12 @@ button:active {
   justify-content: center;
   align-items: center;
   padding: 12px;
+}
+
+.toggle {
+  padding: 0;
+  margin: 0;
+  margin-right: 17px;
 }
 
 .drag-button {
