@@ -20,9 +20,11 @@ function listItemComponent({ id, description, completed }) {
   checkbox.type = 'checkbox';
   checkbox.checked = completed;
   checkbox.id = id;
+  checkbox.classList.add('checkbox');
 
   const text = document.createElement('input');
   text.value = description;
+  text.classList.add('item-input');
 
   node.appendChild(checkbox);
   node.appendChild(text);
