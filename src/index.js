@@ -1,3 +1,5 @@
+import './style.css';
+
 const ITEMS = [
   {
     description: 'Wash the dishes',
