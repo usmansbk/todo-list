@@ -131,3 +131,11 @@ button:active {
 .drag-button:active {
   cursor: grabbing;
 }
+
+.refresh-button {
+  transition: transform 200ms;
+}
+
+.refresh-button:active {
+  transform: rotate(360deg);
+}
