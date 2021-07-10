@@ -76,7 +76,7 @@ button:active {
   align-items: center;
 }
 
-.todo-completed .toggle span {
+.todo-completed .toggle .icon {
   color: #2e8ae6;
 }
 
