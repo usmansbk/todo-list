@@ -14,9 +14,9 @@
 - CSS
 - JavaScript
 
-## Live Demo
+<!-- ## Live Demo
 
-[Live Demo Link](https://usmansbk.github.io/todo-list/)
+[Live Demo Link](https://usmansbk.github.io/todo-list/) -->
 
 ## Getting Started
 
@@ -36,7 +36,6 @@ cd ./todo-list
 ### Install
 
 ```cmd
-npm run build
 npm install
 ```
 
@@ -45,8 +44,6 @@ npm install
 ```cmd
 npm start
 ```
-
-### Run tests
 
 ## Authors
 
