@@ -28,8 +28,10 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
-- Download or clone this repo on your computer
-- Open your terminal in the project folder
+```cmd
+git clone https://github.com/usmansbk/todo-list.git
+cd ./todo-list
+```
 
 ### Install
 
