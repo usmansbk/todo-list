@@ -96,6 +96,11 @@ button:active {
   color: rgba(0, 0, 0, 0.45);
 }
 
+.edit:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
 .list-footer {
   background-color: #f1f2f5;
   display: flex;
