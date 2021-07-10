@@ -26,6 +26,14 @@ body {
   align-items: center;
 }
 
+button {
+  border: none;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .container {
   background-color: white;
   border-radius: 3px;
@@ -36,14 +44,15 @@ body {
 }
 
 .list-header {
+  color: #515664;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .list-title {
   line-height: 20px;
-  color: #545862;
   font-weight: 400;
   padding: 1rem;
 }
@@ -86,16 +95,22 @@ body {
 }
 
 .clear-button {
-  border: none;
-  outline: none;
-  appearance: none;
   margin: 1rem auto;
-  background-color: transparent;
   opacity: 0.5;
   font-weight: 300;
-  cursor: pointer;
 }
 
 .clear-button:hover {
   text-decoration: underline;
+}
+
+.icon-button {
+  line-height: 50px;
+  font-size: 18px;
+  opacity: 0.5;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
 }
