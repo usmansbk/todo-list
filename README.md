@@ -2,7 +2,7 @@
 
 ![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
 
-> Simple yet powerful to-do list.
+> Simple to-do list.
 
 ![screenshot](./app_screenshot.jpeg)
 
