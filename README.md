@@ -1,12 +1,12 @@
-# Project Name
+# To-do List
 
 ![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
 
-> One paragraph statement about the project.
+> Simple yet powerful to-do list.
 
 ![screenshot](./app_screenshot.jpeg)
 
-Additional description about the project and its features.
+"To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.
 
 ## Built With
 
@@ -16,7 +16,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://usmansbk.github.io/todo-list/)
 
 ## Getting Started
 
@@ -69,6 +69,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Microverse
+- [Minimalist website](https://web.archive.org/web/20180320194056/http://www.getminimalist.com:80/)
 
 ## 📝 License
 
