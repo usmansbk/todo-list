@@ -116,7 +116,6 @@ button:active {
 .icon-button {
   line-height: 50px;
   font-size: 18px;
-  opacity: 0.5;
   color: #333;
   display: flex;
   justify-content: center;
@@ -128,10 +127,13 @@ button:active {
   padding: 0;
   margin: 0;
   margin-right: 17px;
+  opacity: 1;
+  color: #c1c1c3;
 }
 
 .drag-button {
   cursor: grab;
+  opacity: 0.2;
 }
 
 .drag-button:active {
@@ -139,6 +141,7 @@ button:active {
 }
 
 .refresh-button {
+  opacity: 0.5;
   transition: transform 200ms;
 }
 
