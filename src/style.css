@@ -75,6 +75,10 @@ button:active {
   align-items: center;
 }
 
+.todo-completed .toggle span {
+  color: #2e8ae6;
+}
+
 .edit {
   height: 20px;
   line-height: 20px;
@@ -85,6 +89,11 @@ button:active {
   font-weight: 300;
   resize: none;
   box-shadow: none;
+}
+
+.todo-completed .edit {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.45);
 }
 
 .list-footer {

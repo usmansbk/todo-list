@@ -6,7 +6,7 @@ export function iconButton(name) {
 
   const icon = document.createElement('span');
   icon.innerText = name;
-  icon.classList.add('material-icons');
+  icon.classList.add('material-icons', 'icon');
 
   node.appendChild(icon);
   return node;
@@ -15,9 +15,14 @@ export function iconButton(name) {
 export function listItemComponent({ description, completed }) {
   const node = document.createElement('li');
   node.classList.add('todo');
+  if (completed) {
+    node.classList.add('todo-completed');
+  } else {
+    node.classList.remove('todo-completed');
+  }
 
   const checkbox = iconButton(completed ? 'done' : 'check_box_outline_blank');
-  checkbox.classList.add('toggle');
+  checkbox.classList.add('toggle', completed ? 'todo-completed' : 'todo-uncompleted');
 
   const text = document.createElement('input');
   text.value = description;
