@@ -1,10 +1,10 @@
-import "./style.css";
+import './style.css';
 
 function component() {
-  const element = document.createElement("div");
+  const element = document.createElement('div');
 
-  element.innerHTML = "Welcome to Microverse";
-  element.classList.add("hello");
+  element.innerHTML = 'Welcome to Microverse';
+  element.classList.add('hello');
 
   return element;
 }
