@@ -110,7 +110,6 @@ button:active {
 
 .clear-button {
   margin: 1rem auto;
-  opacity: 0.5;
   font-weight: 300;
 }
 
@@ -138,7 +137,6 @@ button:active {
 
 .drag-button {
   cursor: grab;
-  opacity: 0.2;
 }
 
 .drag-button:active {
@@ -146,10 +144,17 @@ button:active {
 }
 
 .refresh-button {
-  opacity: 0.5;
   transition: transform 200ms;
 }
 
 .refresh-button:active {
   transform: rotate(360deg);
+}
+
+.opacity-2 {
+  opacity: 0.2;
+}
+
+.opacity-5 {
+  opacity: 0.5;
 }

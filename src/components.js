@@ -29,11 +29,15 @@ export function listItemComponent({ description, completed }) {
   text.classList.add('edit');
 
   const dragButton = iconButton('more_vert');
-  dragButton.classList.add('drag-button');
+  dragButton.classList.add('drag-button', 'opacity-2');
+
+  const deleteButton = iconButton('delete');
+  deleteButton.classList.add('hide', 'opacity-2');
 
   node.appendChild(checkbox);
   node.appendChild(text);
   node.appendChild(dragButton);
+  node.appendChild(deleteButton);
 
   return node;
 }
