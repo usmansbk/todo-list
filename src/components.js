@@ -22,7 +22,10 @@ export function listItemComponent({ description, completed }) {
   }
 
   const checkbox = iconButton(completed ? 'done' : 'check_box_outline_blank');
-  checkbox.classList.add('toggle', completed ? 'todo-completed' : 'todo-uncompleted');
+  checkbox.classList.add('toggle');
+  if (completed) {
+    checkbox.classList.add('todo-completed');
+  }
 
   const text = document.createElement('input');
   text.value = description;
@@ -32,7 +35,7 @@ export function listItemComponent({ description, completed }) {
   dragButton.classList.add('drag-button', 'opacity-2');
 
   const deleteButton = iconButton('delete');
-  deleteButton.classList.add('hide', 'opacity-2');
+  deleteButton.classList.add('opacity-2');
 
   node.appendChild(checkbox);
   node.appendChild(text);
