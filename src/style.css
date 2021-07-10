@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: bisque;
+  background-color: #f4f5f7;
 }
