@@ -13,13 +13,14 @@ const ITEMS = [
   },
 ];
 
-function addItemsToDOM() {
+function addItemsToDOM(items = []) {
   const list = document.getElementById('items');
-  ITEMS.forEach((item) => {
+  list.innerHTML = '';
+  items.forEach((item) => {
     list.appendChild(listItemComponent(item));
   });
 }
 
 window.addEventListener('load', () => {
-  addItemsToDOM();
+  addItemsToDOM(ITEMS);
 });
