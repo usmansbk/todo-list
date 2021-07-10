@@ -4,6 +4,17 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
 body {
   background-color: #f4f5f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
