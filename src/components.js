@@ -34,6 +34,7 @@ export function listItemComponent({ description, completed }) {
   text.addEventListener('keyup', (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
+      // console.log(event.target.value);
     }
   });
 
