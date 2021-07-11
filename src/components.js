@@ -1,7 +1,7 @@
 import './style.css';
 import store from './store.js';
 
-export function iconButton(name) {
+function iconButton(name) {
   const node = document.createElement('button');
   node.classList.add('icon-button');
 
@@ -13,18 +13,18 @@ export function iconButton(name) {
   return node;
 }
 
-export function listItemComponent({ index, description, completed }) {
+function listItemComponent({ index, description, completed }) {
   const node = document.createElement('li');
   node.classList.add('todo');
   node.setAttribute('draggable', true);
   node.addEventListener('dragstart', () => {
-    console.log('dragstart');
+    console.log('dragstart', index);
   });
   node.addEventListener('dragover', () => {
-    console.log('dragover')
+    console.log('dragover', index);
   });
   node.addEventListener('drop', () => {
-    console.log('dragdrop');
+    console.log('dragdrop', index);
   });
 
   const checkbox = iconButton(completed ? 'done' : 'check_box_outline_blank');
@@ -69,4 +69,12 @@ export function listItemComponent({ index, description, completed }) {
   });
 
   return node;
+}
+
+export default function addItemsToDOM(items = []) {
+  const list = document.getElementById('items');
+  list.innerHTML = '';
+  items.forEach((item) => {
+    list.appendChild(listItemComponent(item));
+  });
 }
