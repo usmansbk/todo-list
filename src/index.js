@@ -1,4 +1,5 @@
 import { listItemComponent } from './components.js';
+import store, { loadTodos } from './store.js';
 
 const ITEMS = [
   {
@@ -13,18 +14,17 @@ const ITEMS = [
   },
 ];
 
-function sortItems(items = []) {
-  return items.sort((a, b) => a.index - b.index);
-}
-
 function addItemsToDOM(items = []) {
   const list = document.getElementById('items');
   list.innerHTML = '';
-  sortItems(items).forEach((item) => {
+  items.forEach((item) => {
     list.appendChild(listItemComponent(item));
   });
 }
 
 window.addEventListener('load', () => {
-  addItemsToDOM(ITEMS);
+  store.subscribe(() => {
+    addItemsToDOM(store.getState());
+  });
+  store.dispatch(loadTodos(ITEMS));
 });
