@@ -40,12 +40,14 @@ export default function createStore() {
         break;
       }
       case ADD_TODO: {
-        const todo = {
-          index: state.length,
-          description: action.text,
-          completed: false,
-        };
-        state.push(todo);
+        if (action.text.trim()) {
+          const todo = {
+            index: state.length,
+            description: action.text,
+            completed: false,
+          };
+          state.push(todo);
+        }
         break;
       }
       case EDIT_TODO: {
