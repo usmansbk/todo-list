@@ -52,7 +52,7 @@ export default function createStore() {
       }
       case EDIT_TODO: {
         const todo = state[action.index];
-        if (todo) {
+        if (todo && action.text.trim()) {
           todo.description = action.text;
         }
         break;
