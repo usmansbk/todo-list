@@ -21,6 +21,7 @@ function listItemComponent({
 
   // Drag and Drop listeners
   node.addEventListener('dragstart', (event) => {
+    node.classList.add('dragging');
     setTimeout(() => {
       node.classList.add('opacity-0');
     }, 0);
@@ -32,6 +33,7 @@ function listItemComponent({
   });
 
   node.addEventListener('dragend', () => {
+    node.classList.remove('dragging');
     node.setAttribute('draggable', false);
     node.classList.remove('opacity-0');
   });
