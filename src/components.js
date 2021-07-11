@@ -13,7 +13,9 @@ function iconButton(name) {
   return node;
 }
 
-function listItemComponent({ index, description, completed }) {
+function listItemComponent({
+  index, description, completed, onToggle,
+}) {
   const node = document.createElement('li');
   node.classList.add('todo');
 
@@ -44,7 +46,7 @@ function listItemComponent({ index, description, completed }) {
     checkbox.classList.add('todo-completed');
   }
   checkbox.addEventListener('click', () => {
-    store.toggleTodo(index);
+    onToggle(index);
   });
 
   // Todo description input
@@ -91,6 +93,9 @@ export default function addItemsToDOM(items = []) {
   const list = document.getElementById('items');
   list.innerHTML = '';
   items.forEach((item) => {
-    list.appendChild(listItemComponent(item));
+    list.appendChild(listItemComponent({
+      ...item,
+      onToggle: (index) => store.toggleTodo(index),
+    }));
   });
 }
