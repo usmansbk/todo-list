@@ -1,10 +1,6 @@
 const TOGGLE = 'action/toggle';
 const LOAD_TODOS = 'action/load_todos';
 
-// function sortItems(items = []) {
-//   return items.sort((a, b) => a.index - b.index);
-// }
-
 function createStore() {
   let state = [];
   const subscribers = [];
@@ -60,6 +56,14 @@ class TodoStore {
       items,
     });
   }
+
+  // updateTodo(index, value) {
+  //   this.store.dispatch({
+  //     type: UPDATE_TODO,
+  //     index,
+  //     value,
+  //   });
+  // }
 
   onUpdate(callback) {
     this.store.subscribe(callback);
