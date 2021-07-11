@@ -15,15 +15,11 @@ export function iconButton(name) {
 export function listItemComponent({ description, completed }) {
   const node = document.createElement('li');
   node.classList.add('todo');
-  if (completed) {
-    node.classList.add('todo-completed');
-  } else {
-    node.classList.remove('todo-completed');
-  }
 
   const checkbox = iconButton(completed ? 'done' : 'check_box_outline_blank');
   checkbox.classList.add('toggle');
   if (completed) {
+    node.classList.add('todo-completed');
     checkbox.classList.add('todo-completed');
   }
   checkbox.addEventListener('click', () => {});
@@ -51,13 +47,14 @@ export function listItemComponent({ description, completed }) {
   node.appendChild(deleteButton);
   node.appendChild(dragButton);
 
-  text.addEventListener('focus', () => {
-    dragButton.classList.add('hide');
-    deleteButton.classList.remove('hide');
-  });
+  const toggleButtons = () => {
+    dragButton.classList.toggle('hide');
+    deleteButton.classList.toggle('hide');
+  };
+
+  text.addEventListener('focus', toggleButtons);
   text.addEventListener('blur', () => {
-    deleteButton.classList.add('hide');
-    dragButton.classList.remove('hide');
+    toggleButtons();
   });
 
   return node;
