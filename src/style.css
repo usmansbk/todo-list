@@ -82,6 +82,20 @@ button:active {
   padding: 1rem;
 }
 
+.input-form {
+  display: flex;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.add-todo {
+  border: none;
+  padding: 15px 20px;
+  outline: none;
+  box-shadow: none;
+  width: 100%;
+}
+
 .todo {
   position: relative;
   font-size: 1rem;
