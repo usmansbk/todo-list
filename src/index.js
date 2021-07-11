@@ -1,6 +1,14 @@
 import renderItems from './components.js';
 import store from './store.js';
 
+const form = document.getElementById('add-todo');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const description = form.elements[0].value;
+  store.addTodo(description);
+  form.elements[0].value = '';
+});
+
 window.addEventListener('load', () => {
   const STORE_KEY = 'localstorage/todos';
 

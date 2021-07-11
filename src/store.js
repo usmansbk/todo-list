@@ -1,6 +1,7 @@
 const TOGGLE = 'action/toggle';
 const LOAD_TODOS = 'action/load_todos';
 const SWAP_ITEMS = 'action/swap';
+const ADD_TODO = 'action/add_todo';
 
 function createStore() {
   let state = [];
@@ -33,6 +34,15 @@ function createStore() {
         // Update indexes
         dest.index = action.source;
         src.index = action.dest;
+        break;
+      }
+      case ADD_TODO: {
+        const todo = {
+          index: state.length,
+          description: action.text,
+          completed: false,
+        };
+        state.push(todo);
         break;
       }
       default:
@@ -77,6 +87,13 @@ class TodoStore {
       type: SWAP_ITEMS,
       source,
       dest,
+    });
+  }
+
+  addTodo(text) {
+    this.store.dispatch({
+      type: ADD_TODO,
+      text,
     });
   }
 
