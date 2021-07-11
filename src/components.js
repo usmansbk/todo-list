@@ -16,17 +16,19 @@ function iconButton(name) {
 function listItemComponent({ index, description, completed }) {
   const node = document.createElement('li');
   node.classList.add('todo');
-  node.addEventListener('dragstart', () => {
-    console.log('dragstart', index);
+  node.addEventListener('dragstart', (event) => {
+    node.classList.add('opacity-0');
+    event.dataTransfer.setData('index', index);
   });
-  node.addEventListener('dragover', () => {
-    console.log('dragover', index);
+  node.addEventListener('dragover', (event) => {
+    event.preventDefault();
   });
   node.addEventListener('dragend', () => {
     node.setAttribute('draggable', false);
+    node.classList.remove('opacity-0');
   });
-  node.addEventListener('drop', () => {
-    console.log('dragdrop', index);
+  node.addEventListener('drop', (event) => {
+    const targetIndex = event.dataTransfer.getData('index');
   });
 
   const checkbox = iconButton(completed ? 'done' : 'check_box_outline_blank');
