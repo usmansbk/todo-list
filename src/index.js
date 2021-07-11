@@ -10,6 +10,10 @@ form.addEventListener('submit', (event) => {
 });
 
 window.addEventListener('load', () => {
+  document.getElementById('clear-btn').addEventListener('click', () => {
+    store.clearCompleted();
+  });
+
   const STORE_KEY = 'localstorage/todos';
 
   store.onUpdate(() => {

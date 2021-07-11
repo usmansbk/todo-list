@@ -4,6 +4,7 @@ export const SWAP_TODOS = 'action/swap';
 export const ADD_TODO = 'action/add_todo';
 export const EDIT_TODO = 'action/edit_description';
 export const DELETE_TODO = 'action/delete_todo';
+export const CLEAR_COMPLETED = 'action/clear_completed';
 
 export default function createStore() {
   let state = [];
@@ -57,6 +58,10 @@ export default function createStore() {
       case DELETE_TODO: {
         state = state.filter((todo) => todo.index !== action.index)
           .map((item, index) => ({ ...item, index }));
+        break;
+      }
+      case CLEAR_COMPLETED: {
+        state = state.filter((todo) => !todo.completed).map((item, index) => ({ ...item, index }));
         break;
       }
       default:

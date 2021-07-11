@@ -5,6 +5,7 @@ import createStore, {
   ADD_TODO,
   EDIT_TODO,
   DELETE_TODO,
+  CLEAR_COMPLETED,
 } from './store.js';
 
 class TodoStore {
@@ -57,6 +58,12 @@ class TodoStore {
     this.store.dispatch({
       type: DELETE_TODO,
       index,
+    });
+  }
+
+  clearCompleted() {
+    this.store.dispatch({
+      type: CLEAR_COMPLETED,
     });
   }
 
