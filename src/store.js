@@ -31,7 +31,8 @@ function createStore() {
         state[action.dest] = src;
 
         // Update indexes
-        state = state.map((item, index) => ({ ...item, index }));
+        dest.index = action.source;
+        src.index = action.dest;
         break;
       }
       default:
