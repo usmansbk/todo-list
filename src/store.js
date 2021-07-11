@@ -57,14 +57,6 @@ class TodoStore {
     });
   }
 
-  // updateTodo(index, value) {
-  //   this.store.dispatch({
-  //     type: UPDATE_TODO,
-  //     index,
-  //     value,
-  //   });
-  // }
-
   onUpdate(callback) {
     this.store.subscribe(callback);
   }
