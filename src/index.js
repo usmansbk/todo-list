@@ -1,5 +1,5 @@
 import { listItemComponent } from './components.js';
-import store, { loadTodos } from './store.js';
+import store from './store.js';
 
 const ITEMS = [
   {
@@ -23,8 +23,8 @@ function addItemsToDOM(items = []) {
 }
 
 window.addEventListener('load', () => {
-  store.subscribe(() => {
-    addItemsToDOM(store.getState());
+  store.onUpdate(() => {
+    addItemsToDOM(store.todos);
   });
-  store.dispatch(loadTodos(ITEMS));
+  store.loadTodos(ITEMS);
 });

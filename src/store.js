@@ -38,18 +38,33 @@ function createStore() {
   };
 }
 
-export function toggleTodo(index) {
-  return {
-    type: TOGGLE,
-    index,
-  };
+class TodoStore {
+  constructor() {
+    this.store = createStore();
+  }
+
+  get todos() {
+    return this.store.getState();
+  }
+
+  toggleTodo(index) {
+    this.store.dispatch({
+      type: TOGGLE,
+      index,
+    });
+  }
+
+  loadTodos(items) {
+    this.store.dispatch({
+      type: LOAD_TODOS,
+      items,
+    });
+  }
+
+  onUpdate(callback) {
+    this.store.subscribe(callback);
+  }
 }
 
-export function loadTodos(items) {
-  return {
-    type: LOAD_TODOS,
-    items,
-  };
-}
-
-export default createStore();
+const store = new TodoStore();
+export default store;

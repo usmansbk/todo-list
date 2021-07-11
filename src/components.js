@@ -1,5 +1,5 @@
 import './style.css';
-import store, { toggleTodo } from './store.js';
+import store from './store.js';
 
 export function iconButton(name) {
   const node = document.createElement('button');
@@ -24,7 +24,7 @@ export function listItemComponent({ index, description, completed }) {
     checkbox.classList.add('todo-completed');
   }
   checkbox.addEventListener('click', () => {
-    store.dispatch(toggleTodo(index));
+    store.toggleTodo(index);
   });
 
   const text = document.createElement('input');
