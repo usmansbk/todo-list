@@ -31,6 +31,11 @@ export function listItemComponent({ description, completed }) {
   const text = document.createElement('input');
   text.value = description;
   text.classList.add('edit');
+  text.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+    }
+  });
 
   const dragButton = iconButton('more_vert');
   dragButton.classList.add('drag-button', 'opacity-2');
