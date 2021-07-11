@@ -16,12 +16,14 @@ function iconButton(name) {
 function listItemComponent({ index, description, completed }) {
   const node = document.createElement('li');
   node.classList.add('todo');
-  node.setAttribute('draggable', true);
   node.addEventListener('dragstart', () => {
     console.log('dragstart', index);
   });
   node.addEventListener('dragover', () => {
     console.log('dragover', index);
+  });
+  node.addEventListener('dragend', () => {
+    node.setAttribute('draggable', false);
   });
   node.addEventListener('drop', () => {
     console.log('dragdrop', index);
@@ -48,6 +50,9 @@ function listItemComponent({ index, description, completed }) {
 
   const dragButton = iconButton('more_vert');
   dragButton.classList.add('drag-button', 'opacity-2');
+  dragButton.addEventListener('mousedown', () => {
+    node.setAttribute('draggable', true);
+  });
 
   const deleteButton = iconButton('delete_outline');
   deleteButton.classList.add('opacity-5', 'hide');
