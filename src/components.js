@@ -16,9 +16,16 @@ export function iconButton(name) {
 export function listItemComponent({ index, description, completed }) {
   const node = document.createElement('li');
   node.classList.add('todo');
-  node.addEventListener('dragstart', () => {});
-  node.addEventListener('dragover', () => {});
-  node.addEventListener('drop', () => {});
+  node.setAttribute('draggable', true);
+  node.addEventListener('dragstart', () => {
+    console.log('dragstart');
+  });
+  node.addEventListener('dragover', () => {
+    console.log('dragover')
+  });
+  node.addEventListener('drop', () => {
+    console.log('dragdrop');
+  });
 
   const checkbox = iconButton(completed ? 'done' : 'check_box_outline_blank');
   checkbox.classList.add('toggle');
@@ -36,13 +43,11 @@ export function listItemComponent({ index, description, completed }) {
   text.addEventListener('keyup', (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
-      // console.log(event.target.value);
     }
   });
 
   const dragButton = iconButton('more_vert');
   dragButton.classList.add('drag-button', 'opacity-2');
-  dragButton.addEventListener('mousedown', () => {});
 
   const deleteButton = iconButton('delete_outline');
   deleteButton.classList.add('opacity-5', 'hide');
