@@ -1,5 +1,5 @@
 import './style.css';
-import store from './store.js';
+import store from './todo-store.js';
 
 function iconButton(name) {
   const node = document.createElement('button');
@@ -106,7 +106,7 @@ export default function addItemsToDOM(items = []) {
     list.appendChild(listItemComponent({
       ...item,
       onToggle: (index) => store.toggleTodo(index),
-      onSwap: (source, dest) => store.swapTodo(source, dest),
+      onSwap: (source, dest) => store.swapTodos(source, dest),
       onEdit: (index, text) => store.editTodo(index, text),
       onDelete: (index) => store.deleteTodo(index),
     }));

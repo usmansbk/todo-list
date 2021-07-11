@@ -1,5 +1,5 @@
 import renderItems from './components.js';
-import store from './store.js';
+import store from './todo-store.js';
 
 const form = document.getElementById('add-todo');
 form.addEventListener('submit', (event) => {
