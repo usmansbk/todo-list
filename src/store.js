@@ -10,10 +10,6 @@ function createStore() {
 
   const subscribe = (subscriber) => subscribers.push(subscriber);
 
-  function findTodoIndex(index) {
-    return state.findIndex((item) => item.index === Number(index));
-  }
-
   const dispatch = (action) => {
     switch (action.type) {
       case TOGGLE: {
@@ -26,13 +22,9 @@ function createStore() {
         break;
       }
       case SWAP_ITEMS: {
-        // Find positions
-        const srcIndex = findTodoIndex(action.source);
-        const destIndex = findTodoIndex(action.dest);
-
         // Get values
-        const src = state[srcIndex];
-        const dest = state[destIndex];
+        const src = state[action.source];
+        const dest = state[action.dest];
 
         // Swap positions
         state[action.source] = dest;
