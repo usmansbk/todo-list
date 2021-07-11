@@ -27,9 +27,9 @@ window.addEventListener('load', () => {
   store.onUpdate(() => {
     addItemsToDOM(store.todos);
   });
-  const saved = localStorage.getItem(STORE_KEY);
   store.onUpdate(() => {
     localStorage.setItem(STORE_KEY, JSON.stringify(store.todos));
   });
+  const saved = localStorage.getItem(STORE_KEY);
   store.loadTodos(saved ? JSON.parse(saved) : ITEMS);
 });
