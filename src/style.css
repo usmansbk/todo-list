@@ -178,14 +178,6 @@ button:active {
   cursor: all-scroll;
 }
 
-.refresh-button {
-  transition: transform 200ms;
-}
-
-.refresh-button:active {
-  transform: rotate(360deg);
-}
-
 .hide {
   display: none;
 }
