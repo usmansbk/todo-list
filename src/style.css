@@ -88,18 +88,22 @@ button:active {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.add-todo {
+.add-todo-input {
   border: none;
-  padding: 15px 20px;
+  padding: 0 40px 0 1rem;
+  line-height: 50px;
+  height: 50px;
   outline: none;
   box-shadow: none;
   width: 100%;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .todo {
   position: relative;
   font-size: 1rem;
-  padding-left: 20px;
+  padding-left: 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   box-sizing: content-box;
   display: flex;
