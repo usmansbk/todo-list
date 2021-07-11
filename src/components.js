@@ -16,21 +16,27 @@ function iconButton(name) {
 function listItemComponent({ index, description, completed }) {
   const node = document.createElement('li');
   node.classList.add('todo');
+
+  // Drag and Drop listeners
   node.addEventListener('dragstart', (event) => {
     node.classList.add('opacity-0');
     event.dataTransfer.setData('index', index);
   });
+
   node.addEventListener('dragover', (event) => {
     event.preventDefault();
   });
+
   node.addEventListener('dragend', () => {
     node.setAttribute('draggable', false);
     node.classList.remove('opacity-0');
   });
+
   node.addEventListener('drop', (event) => {
-    const targetIndex = event.dataTransfer.getData('index');
+    event.dataTransfer.getData('index');
   });
 
+  // Todo toggle checkbox
   const checkbox = iconButton(completed ? 'done' : 'check_box_outline_blank');
   checkbox.classList.add('toggle');
   if (completed) {
@@ -41,6 +47,7 @@ function listItemComponent({ index, description, completed }) {
     store.toggleTodo(index);
   });
 
+  // Todo description input
   const text = document.createElement('input');
   text.value = description;
   text.classList.add('edit');
@@ -50,12 +57,14 @@ function listItemComponent({ index, description, completed }) {
     }
   });
 
+  // Drag handle
   const dragButton = iconButton('more_vert');
   dragButton.classList.add('drag-button', 'opacity-2');
   dragButton.addEventListener('mousedown', () => {
     node.setAttribute('draggable', true);
   });
 
+  // Delete Todo item
   const deleteButton = iconButton('delete_outline');
   deleteButton.classList.add('opacity-5', 'hide');
   deleteButton.addEventListener('mousedown', () => {});
