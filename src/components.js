@@ -16,6 +16,9 @@ export function iconButton(name) {
 export function listItemComponent({ index, description, completed }) {
   const node = document.createElement('li');
   node.classList.add('todo');
+  node.addEventListener('dragstart', () => {});
+  node.addEventListener('dragover', () => {});
+  node.addEventListener('drop', () => {});
 
   const checkbox = iconButton(completed ? 'done' : 'check_box_outline_blank');
   checkbox.classList.add('toggle');
