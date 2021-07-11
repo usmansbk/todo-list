@@ -33,9 +33,8 @@ function listItemComponent({
   });
 
   node.addEventListener('dragend', () => {
-    node.classList.remove('dragging');
     node.setAttribute('draggable', false);
-    node.classList.remove('opacity-0');
+    node.classList.remove('opacity-0', 'dragging');
   });
 
   node.addEventListener('drop', (event) => {
