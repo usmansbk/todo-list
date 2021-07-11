@@ -22,9 +22,14 @@ function addItemsToDOM(items = []) {
   });
 }
 
+const STORE_KEY = 'localstorage/todos';
 window.addEventListener('load', () => {
   store.onUpdate(() => {
     addItemsToDOM(store.todos);
   });
-  store.loadTodos(ITEMS);
+  const saved = localStorage.getItem(STORE_KEY);
+  store.onUpdate(() => {
+    localStorage.setItem(STORE_KEY, JSON.stringify(store.todos));
+  });
+  store.loadTodos(saved ? JSON.parse(saved) : ITEMS);
 });
