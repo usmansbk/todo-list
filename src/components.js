@@ -14,7 +14,7 @@ function iconButton(name) {
 }
 
 function listItemComponent({
-  index, description, completed, onToggle, swap, onEdit,
+  index, description, completed, onToggle, onSwap, onEdit, onDelete,
 }) {
   const node = document.createElement('li');
   node.classList.add('todo');
@@ -40,7 +40,7 @@ function listItemComponent({
   node.addEventListener('drop', (event) => {
     const source = event.dataTransfer.getData('index');
     const destination = index;
-    swap(source, destination);
+    onSwap(source, destination);
   });
 
   // Todo toggle checkbox
@@ -75,7 +75,10 @@ function listItemComponent({
   // Delete Todo item
   const deleteButton = iconButton('delete_outline');
   deleteButton.classList.add('opacity-5', 'hide');
-  deleteButton.addEventListener('mousedown', () => {});
+  deleteButton.addEventListener('mousedown', (event) => {
+    event.stopPropagation();
+    onDelete(index);
+  });
 
   node.appendChild(checkbox);
   node.appendChild(text);
@@ -103,8 +106,9 @@ export default function addItemsToDOM(items = []) {
     list.appendChild(listItemComponent({
       ...item,
       onToggle: (index) => store.toggleTodo(index),
-      swap: (source, dest) => store.swapTodo(source, dest),
+      onSwap: (source, dest) => store.swapTodo(source, dest),
       onEdit: (index, text) => store.editTodo(index, text),
+      onDelete: (index) => store.deleteTodo(index),
     }));
   });
 }

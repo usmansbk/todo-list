@@ -3,6 +3,7 @@ const LOAD_TODOS = 'action/load_todos';
 const SWAP_ITEMS = 'action/swap';
 const ADD_TODO = 'action/add_todo';
 const EDIT_TODO = 'action/edit_description';
+const DELETE_TODO = 'action/delete_todo';
 
 function createStore() {
   let state = [];
@@ -48,7 +49,14 @@ function createStore() {
       }
       case EDIT_TODO: {
         const todo = state[action.index];
-        todo.description = action.text;
+        if (todo) {
+          todo.description = action.text;
+        }
+        break;
+      }
+      case DELETE_TODO: {
+        state = state.filter((todo) => todo.index !== action.index)
+          .map((item, index) => ({ ...item, index }));
         break;
       }
       default:
@@ -108,6 +116,13 @@ class TodoStore {
       type: EDIT_TODO,
       index,
       text,
+    });
+  }
+
+  deleteTodo(index) {
+    this.store.dispatch({
+      type: DELETE_TODO,
+      index,
     });
   }
 
