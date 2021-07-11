@@ -14,7 +14,7 @@ function iconButton(name) {
 }
 
 function listItemComponent({
-  index, description, completed, onToggle,
+  index, description, completed, onToggle, swap,
 }) {
   const node = document.createElement('li');
   node.classList.add('todo');
@@ -39,7 +39,7 @@ function listItemComponent({
   node.addEventListener('drop', (event) => {
     const source = event.dataTransfer.getData('index');
     const destination = index;
-    store.swapTodo(source, destination);
+    swap(source, destination);
   });
 
   // Todo toggle checkbox
@@ -100,6 +100,7 @@ export default function addItemsToDOM(items = []) {
     list.appendChild(listItemComponent({
       ...item,
       onToggle: (index) => store.toggleTodo(index),
+      swap: (source, dest) => store.swapTodo(source, dest),
     }));
   });
 }
