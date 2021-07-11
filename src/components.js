@@ -26,6 +26,7 @@ export function listItemComponent({ description, completed }) {
   if (completed) {
     checkbox.classList.add('todo-completed');
   }
+  checkbox.addEventListener('click', () => {});
 
   const text = document.createElement('input');
   text.value = description;
@@ -33,21 +34,24 @@ export function listItemComponent({ description, completed }) {
 
   const dragButton = iconButton('more_vert');
   dragButton.classList.add('drag-button', 'opacity-2');
+  dragButton.addEventListener('mousedown', () => {});
 
   const deleteButton = iconButton('delete_outline');
-  deleteButton.classList.add('opacity-5');
+  deleteButton.classList.add('opacity-5', 'hide');
+  deleteButton.addEventListener('mousedown', () => {});
 
   node.appendChild(checkbox);
   node.appendChild(text);
+  node.appendChild(deleteButton);
   node.appendChild(dragButton);
 
   text.addEventListener('focus', () => {
-    dragButton.remove();
-    node.appendChild(deleteButton);
+    dragButton.classList.add('hide');
+    deleteButton.classList.remove('hide');
   });
   text.addEventListener('blur', () => {
-    deleteButton.remove();
-    node.appendChild(dragButton);
+    deleteButton.classList.add('hide');
+    dragButton.classList.remove('hide');
   });
 
   return node;

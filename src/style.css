@@ -148,6 +148,10 @@ button:active {
   transform: rotate(360deg);
 }
 
+.hide {
+  display: none;
+}
+
 .opacity-2 {
   opacity: 0.2;
 }
