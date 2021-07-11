@@ -30,6 +30,11 @@ function listItemComponent({
 
   node.addEventListener('dragover', (event) => {
     event.preventDefault();
+    node.classList.add('opacity-2');
+  });
+
+  node.addEventListener('dragleave', () => {
+    node.classList.remove('opacity-2');
   });
 
   node.addEventListener('dragend', () => {
