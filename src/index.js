@@ -13,10 +13,14 @@ const ITEMS = [
   },
 ];
 
+function sortItems(items = []) {
+  return items.sort((a, b) => a.index - b.index);
+}
+
 function addItemsToDOM(items = []) {
   const list = document.getElementById('items');
   list.innerHTML = '';
-  items.forEach((item) => {
+  sortItems(items).forEach((item) => {
     list.appendChild(listItemComponent(item));
   });
 }
