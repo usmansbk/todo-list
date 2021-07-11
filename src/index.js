@@ -1,4 +1,4 @@
-import { listItemComponent } from './components.js';
+import renderItems from './components.js';
 import store from './store.js';
 
 const ITEMS = [
@@ -14,18 +14,11 @@ const ITEMS = [
   },
 ];
 
-function addItemsToDOM(items = []) {
-  const list = document.getElementById('items');
-  list.innerHTML = '';
-  items.forEach((item) => {
-    list.appendChild(listItemComponent(item));
-  });
-}
-
-const STORE_KEY = 'localstorage/todos';
 window.addEventListener('load', () => {
+  const STORE_KEY = 'localstorage/todos';
+
   store.onUpdate(() => {
-    addItemsToDOM(store.todos);
+    renderItems(store.todos);
   });
   store.onUpdate(() => {
     localStorage.setItem(STORE_KEY, JSON.stringify(store.todos));
