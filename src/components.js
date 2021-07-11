@@ -21,7 +21,9 @@ function listItemComponent({
 
   // Drag and Drop listeners
   node.addEventListener('dragstart', (event) => {
-    node.classList.add('opacity-0');
+    setTimeout(() => {
+      node.classList.add('opacity-0');
+    }, 0);
     event.dataTransfer.setData('index', index);
   });
 
@@ -35,7 +37,9 @@ function listItemComponent({
   });
 
   node.addEventListener('drop', (event) => {
-    event.dataTransfer.getData('index');
+    const source = event.dataTransfer.getData('index');
+    const destination = index;
+    store.swapTodo(source, destination);
   });
 
   // Todo toggle checkbox

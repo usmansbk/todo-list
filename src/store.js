@@ -1,5 +1,6 @@
 const TOGGLE = 'action/toggle';
 const LOAD_TODOS = 'action/load_todos';
+const SORT_ITEMS = 'action/sort';
 
 function createStore() {
   let state = [];
@@ -8,6 +9,10 @@ function createStore() {
   const getState = () => state;
 
   const subscribe = (subscriber) => subscribers.push(subscriber);
+
+  function findTodoIndex(index) {
+    return state.findIndex((item) => item.index === Number(index));
+  }
 
   const dispatch = (action) => {
     switch (action.type) {
@@ -18,6 +23,23 @@ function createStore() {
       }
       case LOAD_TODOS: {
         state = action.items;
+        break;
+      }
+      case SORT_ITEMS: {
+        // Find positions
+        const srcIndex = findTodoIndex(action.source);
+        const destIndex = findTodoIndex(action.dest);
+
+        // Get values
+        const src = state[srcIndex];
+        const dest = state[destIndex];
+
+        // Swap positions
+        state[action.source] = dest;
+        state[action.dest] = src;
+
+        // Update indexes
+        state = state.map((item, index) => ({ ...item, index }));
         break;
       }
       default:
@@ -54,6 +76,14 @@ class TodoStore {
     this.store.dispatch({
       type: LOAD_TODOS,
       items,
+    });
+  }
+
+  swapTodo(source, dest) {
+    this.store.dispatch({
+      type: SORT_ITEMS,
+      source,
+      dest,
     });
   }
 
