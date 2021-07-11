@@ -1,6 +1,6 @@
 const TOGGLE = 'action/toggle';
 const LOAD_TODOS = 'action/load_todos';
-const SORT_ITEMS = 'action/sort';
+const SWAP_ITEMS = 'action/swap';
 
 function createStore() {
   let state = [];
@@ -25,7 +25,7 @@ function createStore() {
         state = action.items;
         break;
       }
-      case SORT_ITEMS: {
+      case SWAP_ITEMS: {
         // Find positions
         const srcIndex = findTodoIndex(action.source);
         const destIndex = findTodoIndex(action.dest);
@@ -81,7 +81,7 @@ class TodoStore {
 
   swapTodo(source, dest) {
     this.store.dispatch({
-      type: SORT_ITEMS,
+      type: SWAP_ITEMS,
       source,
       dest,
     });
