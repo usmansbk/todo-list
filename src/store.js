@@ -1,8 +1,12 @@
-const TOGGLE = 'action/toggle';
-const LOAD_TODOS = 'action/load_todos';
-const SWAP_ITEMS = 'action/swap';
+export const TOGGLE = 'action/toggle';
+export const LOAD_TODOS = 'action/load_todos';
+export const SWAP_TODOS = 'action/swap';
+export const ADD_TODO = 'action/add_todo';
+export const EDIT_TODO = 'action/edit_description';
+export const DELETE_TODO = 'action/delete_todo';
+export const CLEAR_COMPLETED = 'action/clear_completed';
 
-function createStore() {
+export default function createStore() {
   let state = [];
   const subscribers = [];
 
@@ -21,7 +25,7 @@ function createStore() {
         state = action.items;
         break;
       }
-      case SWAP_ITEMS: {
+      case SWAP_TODOS: {
         // Get values
         const src = state[action.source];
         const dest = state[action.dest];
@@ -33,6 +37,33 @@ function createStore() {
         // Update indexes
         dest.index = action.source;
         src.index = action.dest;
+        break;
+      }
+      case ADD_TODO: {
+        if (action.text.trim()) {
+          const todo = {
+            index: state.length,
+            description: action.text,
+            completed: false,
+          };
+          state.push(todo);
+        }
+        break;
+      }
+      case EDIT_TODO: {
+        const todo = state[action.index];
+        if (todo && action.text.trim()) {
+          todo.description = action.text;
+        }
+        break;
+      }
+      case DELETE_TODO: {
+        state = state.filter((todo) => todo.index !== action.index)
+          .map((item, index) => ({ ...item, index }));
+        break;
+      }
+      case CLEAR_COMPLETED: {
+        state = state.filter((todo) => !todo.completed).map((item, index) => ({ ...item, index }));
         break;
       }
       default:
@@ -48,42 +79,3 @@ function createStore() {
     dispatch,
   };
 }
-
-class TodoStore {
-  constructor() {
-    this.store = createStore();
-  }
-
-  get todos() {
-    return this.store.getState();
-  }
-
-  toggleTodo(index) {
-    this.store.dispatch({
-      type: TOGGLE,
-      index,
-    });
-  }
-
-  loadTodos(items) {
-    this.store.dispatch({
-      type: LOAD_TODOS,
-      items,
-    });
-  }
-
-  swapTodo(source, dest) {
-    this.store.dispatch({
-      type: SWAP_ITEMS,
-      source,
-      dest,
-    });
-  }
-
-  onUpdate(callback) {
-    this.store.subscribe(callback);
-  }
-}
-
-const store = new TodoStore();
-export default store;
