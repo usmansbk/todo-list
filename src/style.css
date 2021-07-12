@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #f4f5f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border: none;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  color: black;
+  opacity: 1;
+}
+
+.container {
+  background-color: #f1f2f5;
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  max-width: 500px;
+  width: 100%;
+  margin: 24px;
+}
+
+.list-header {
+  color: #515664;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: white;
+}
+
+.list-title {
+  line-height: 20px;
+  font-weight: 400;
+  padding: 1rem;
+}
+
+.todo {
+  font-size: 1rem;
+  padding-left: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.todo-completed .toggle .icon {
+  color: #2e8ae6;
+}
+
+.edit {
+  height: 20px;
+  line-height: 20px;
+  width: 100%;
+  padding: 15px 0;
+  border: none;
+  outline: none;
+  font-weight: 300;
+  resize: none;
+  box-shadow: none;
+}
+
+.todo-completed .edit {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.edit:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
+.list-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clear-button {
+  margin: 1rem auto;
+  font-weight: 300;
+}
+
+.clear-button:hover {
+  text-decoration: underline;
+}
+
+.icon-button {
+  line-height: 50px;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.toggle {
+  padding: 0;
+  margin: 0;
+  margin-right: 17px;
+  opacity: 1;
+  color: #c1c1c3;
+}
+
+.drag-button {
+  cursor: all-scroll;
+}
+
+.refresh-button {
+  transition: transform 200ms;
+}
+
+.refresh-button:active {
+  transform: rotate(360deg);
+}
+
+.hide {
+  display: none;
+}
+
+.opacity-2 {
+  opacity: 0.2;
+}
+
+.opacity-5 {
+  opacity: 0.5;
+}
