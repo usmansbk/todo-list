@@ -80,8 +80,7 @@ function listItemComponent({
   // Delete Todo item
   const deleteButton = iconButton('delete_outline');
   deleteButton.classList.add('opacity-5', 'hide');
-  deleteButton.addEventListener('mousedown', (event) => {
-    event.stopPropagation();
+  deleteButton.addEventListener('mousedown', () => {
     onDelete(index);
   });
 
