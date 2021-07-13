@@ -8,19 +8,15 @@
 
 "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.
 
-## Live Link
-
-[Live Link](https://usmansbk.github.io/todo-list/dist/)
-
 ## Built With
 
 - HTML
 - CSS
 - JavaScript
 
-<!-- ## Live Demo
+## Live Demo
 
-[Live Demo Link](https://usmansbk.github.io/todo-list/) -->
+[Live Demo Link](https://usmansbk.github.io/todo-list/dist/)
 
 ## Getting Started
 
