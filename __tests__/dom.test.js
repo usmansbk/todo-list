@@ -63,7 +63,9 @@ describe('Button', () => {
 
     const node = listItemComponent(item);
     const button = node.querySelector('.delete-btn');
-    button.click();
+    const event = document.createEvent('MouseEvent');
+    event.initEvent('mousedown', true, true);
+    button.dispatchEvent(event);
 
     expect(onDelete).toBeCalled();
   });
