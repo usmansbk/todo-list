@@ -1,4 +1,6 @@
-import createStore, { ADD_TODO, DELETE_TODO, EDIT_TODO, TOGGLE } from '../src/store.js';
+import createStore, {
+  ADD_TODO, DELETE_TODO, EDIT_TODO, LOAD_TODOS, SWAP_TODOS, TOGGLE,
+} from '../src/store.js';
 
 describe('Adding an item to store', () => {
   test('should contain single item', () => {
@@ -81,5 +83,29 @@ describe('Update', () => {
     const todo = store.getState()[0];
 
     expect(todo.completed).toBeTruthy();
+  });
+
+  test('should update index upon drag/drop', () => {
+    const store = createStore();
+    const items = [
+      { index: 0, description: 'Item 1', completed: false },
+      { index: 1, description: 'Item 2', completed: false },
+    ];
+    const loadAction = {
+      type: LOAD_TODOS,
+      items,
+    };
+    const swapAction = {
+      type: SWAP_TODOS,
+      source: 0,
+      dest: 1,
+    };
+
+    store.dispatch(loadAction);
+    store.dispatch(swapAction);
+    const firstItem = store.getState()[0];
+
+    expect(firstItem.index).toBe(0);
+    expect(firstItem.description).toBe('Item 2');
   });
 });
