@@ -1,12 +1,6 @@
 import createStore, { ADD_TODO } from '../src/store.js';
 
-test('Store should be empty', () => {
-  const store = createStore();
-
-  expect(store.getState().length).toBe(0);
-});
-
-describe('Adding an item', () => {
+describe('Adding an item to store', () => {
   test('should contain single item', () => {
     const store = createStore();
     const action = {
@@ -16,7 +10,7 @@ describe('Adding an item', () => {
 
     store.dispatch(action);
 
-    expect(store.getState().length).toBe(1);
+    expect(store.getState()).toHaveLength(1);
   });
 
   test('should not add a todo with empty string', () => {
@@ -28,6 +22,6 @@ describe('Adding an item', () => {
 
     store.dispatch(action);
 
-    expect(store.getState().length).toBe(0);
+    expect(store.getState()).toHaveLength(0);
   });
 });
