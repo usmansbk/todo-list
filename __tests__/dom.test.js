@@ -26,6 +26,9 @@ describe('Edit input', () => {
     };
 
     const node = listItemComponent(item);
+    const input = node.querySelector('.edit');
+    const event = new KeyboardEvent('keyup', { key: 'Enter' });
+    input.dispatchEvent(event);
 
     expect(onEdit).toBeCalled();
   });
@@ -42,9 +45,8 @@ describe('Edit input', () => {
 
     const node = listItemComponent(item);
     const input = node.querySelector('.edit');
-    input.focus();
-    input.value = 'test';
-    input.blur();
+    const event = new KeyboardEvent('blur');
+    input.dispatchEvent(event);
 
     expect(onEdit).toBeCalled();
   });
@@ -63,8 +65,7 @@ describe('Button', () => {
 
     const node = listItemComponent(item);
     const button = node.querySelector('.delete-btn');
-    const event = document.createEvent('MouseEvent');
-    event.initEvent('mousedown', true, true);
+    const event = new MouseEvent('mousedown');
     button.dispatchEvent(event);
 
     expect(onDelete).toBeCalled();
