@@ -1,4 +1,4 @@
-import createStore, { ADD_TODO, DELETE_TODO, EDIT_TODO } from '../src/store.js';
+import createStore, { ADD_TODO, DELETE_TODO, EDIT_TODO, TOGGLE } from '../src/store.js';
 
 describe('Adding an item to store', () => {
   test('should contain single item', () => {
@@ -45,8 +45,8 @@ describe('Removing an item from store', () => {
   });
 });
 
-describe('Editing an item', () => {
-  test('should update the item description', () => {
+describe('Update', () => {
+  test('should edit the item description', () => {
     const store = createStore();
     const addAction = {
       type: ADD_TODO,
@@ -63,5 +63,23 @@ describe('Editing an item', () => {
     const todo = store.getState()[0];
 
     expect(todo.description).toBe('Editing with Jest');
+  });
+
+  test("should update item's 'completed' status", () => {
+    const store = createStore();
+    const addAction = {
+      type: ADD_TODO,
+      text: 'Testing with Jest',
+    };
+    const toggleAction = {
+      type: TOGGLE,
+      index: 0,
+    };
+
+    store.dispatch(addAction);
+    store.dispatch(toggleAction);
+    const todo = store.getState()[0];
+
+    expect(todo.completed).toBeTruthy();
   });
 });
