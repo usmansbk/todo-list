@@ -26,20 +26,21 @@ describe('Adding an item to store', () => {
   });
 });
 
-test('should not have any elements', () => {
-  const store = createStore();
-  const action = {
-    type: ADD_TODO,
-    text: 'Testing with Jest',
-  };
+describe('Removing an item from store', () => {
+  test('should not have any elements', () => {
+    const store = createStore();
+    const addAction = {
+      type: ADD_TODO,
+      text: 'Testing with Jest',
+    };
+    const removeAction = {
+      type: DELETE_TODO,
+      index: 0,
+    };
 
-  store.dispatch(action);
+    store.dispatch(addAction);
+    store.dispatch(removeAction);
 
-  const remove = {
-    type: DELETE_TODO,
-    index: 0,
-  };
-
-  store.dispatch(remove);
-  expect(store.getState()).toHaveLength(0);
+    expect(store.getState()).toHaveLength(0);
+  });
 });
