@@ -78,7 +78,7 @@ export function listItemComponent({
 
   // Delete Todo item
   const deleteButton = iconButton('delete_outline');
-  deleteButton.classList.add('opacity-5', 'hide');
+  deleteButton.classList.add('opacity-5', 'hide', 'delete-btn');
   deleteButton.addEventListener('mousedown', () => {
     onDelete(index);
   });

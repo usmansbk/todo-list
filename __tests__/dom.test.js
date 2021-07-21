@@ -41,6 +41,10 @@ describe('Edit input', () => {
     };
 
     const node = listItemComponent(item);
+    const input = node.querySelector('.edit');
+    input.focus();
+    input.value = 'test';
+    input.blur();
 
     expect(onEdit).toBeCalled();
   });
@@ -58,37 +62,26 @@ describe('Button', () => {
     };
 
     const node = listItemComponent(item);
+    const button = node.querySelector('.delete-btn');
+    button.click();
 
     expect(onDelete).toBeCalled();
   });
 
-  test('drag handle should swap items on drop and drop', () => {
-    const onSwap = jest.fn();
-
-    const item = {
-      index: 0,
-      description: 'Testing',
-      completed: false,
-      onSwap,
-    };
-
-    const node = listItemComponent(item);
-
-    expect(onSwap).toBeCalled();
-  });
-
   test('toggle button should toggle the completed status', () => {
-    const onSwap = jest.fn();
+    const onToggle = jest.fn();
 
     const item = {
       index: 0,
       description: 'Testing',
       completed: false,
-      onSwap,
+      onToggle,
     };
 
     const node = listItemComponent(item);
+    const button = node.querySelector('.toggle');
+    button.click();
 
-    expect(onSwap).toBeCalled();
+    expect(onToggle).toBeCalled();
   });
 });
