@@ -53,11 +53,11 @@ describe('Update', () => {
 
   test('should update index upon drag/drop', () => {
     const store = new Store();
-
     const items = [
       { index: 0, description: 'Item 1', completed: false },
       { index: 1, description: 'Item 2', completed: false },
     ];
+
     store.loadTodos(items);
     store.swapTodos(0, 1);
     const firstItem = store.todos[0];
@@ -68,11 +68,11 @@ describe('Update', () => {
 
   test('should clear all completed to-dos', () => {
     const store = new Store();
-
     const items = [
       { index: 0, description: 'Item 1', completed: true },
       { index: 1, description: 'Item 2', completed: false },
     ];
+
     store.loadTodos(items);
     store.clearCompleted();
 
