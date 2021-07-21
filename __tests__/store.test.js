@@ -1,12 +1,12 @@
 import createStore, { ADD_TODO } from '../src/store.js';
 
-describe('Store', () => {
-  test('should be empty', () => {
-    const store = createStore();
+test('Store should be empty', () => {
+  const store = createStore();
 
-    expect(store.getState().length).toBe(0);
-  });
+  expect(store.getState().length).toBe(0);
+});
 
+describe('Adding an item', () => {
   test('should contain single item', () => {
     const store = createStore();
     const action = {
