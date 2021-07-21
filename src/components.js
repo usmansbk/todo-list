@@ -12,7 +12,7 @@ function iconButton(name) {
   return node;
 }
 
-function listItemComponent({
+export function listItemComponent({
   index, description, completed, onToggle, onSwap, onEdit, onDelete,
 }) {
   const node = document.createElement('li');
