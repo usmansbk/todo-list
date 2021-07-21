@@ -45,6 +45,12 @@ npm install
 npm start
 ```
 
+### Test
+
+```cmd
+npm test
+```
+
 ## Authors
 
 👤 **Babakolo Usman Suleiman**
