@@ -1,4 +1,3 @@
-import './style.css';
 import store from './todo-store.js';
 
 function iconButton(name) {
