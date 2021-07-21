@@ -1,4 +1,4 @@
-import createStore, { ADD_TODO , DELETE_TODO } from '../src/store.js';
+import createStore, { ADD_TODO, DELETE_TODO } from '../src/store.js';
 
 describe('Adding an item to store', () => {
   test('should contain single item', () => {
@@ -28,18 +28,18 @@ describe('Adding an item to store', () => {
 
 test('should not have any elements', () => {
   const store = createStore();
-      const action = {
-      type: ADD_TODO,
-      text: 'Testing with Jest',
-    };
+  const action = {
+    type: ADD_TODO,
+    text: 'Testing with Jest',
+  };
 
-    store.dispatch(action);
+  store.dispatch(action);
 
-    const remove = {
-      type: DELETE_TODO,
-      index: 0,
-    };
+  const remove = {
+    type: DELETE_TODO,
+    index: 0,
+  };
 
-    store.dispatch(remove)
-    expect(store.getState()).toHaveLength(0);
-})
+  store.dispatch(remove);
+  expect(store.getState()).toHaveLength(0);
+});
