@@ -1,5 +1,5 @@
 import createStore, {
-  ADD_TODO, DELETE_TODO, EDIT_TODO, LOAD_TODOS, SWAP_TODOS, TOGGLE,
+  ADD_TODO, CLEAR_COMPLETED, DELETE_TODO, EDIT_TODO, LOAD_TODOS, SWAP_TODOS, TOGGLE,
 } from '../src/store.js';
 
 describe('Adding an item to store', () => {
@@ -107,5 +107,25 @@ describe('Update', () => {
 
     expect(firstItem.index).toBe(0);
     expect(firstItem.description).toBe('Item 2');
+  });
+
+  test('should clear all completed to-dos', () => {
+    const store = createStore();
+    const items = [
+      { index: 0, description: 'Item 1', completed: true },
+      { index: 1, description: 'Item 2', completed: false },
+    ];
+    const loadAction = {
+      type: LOAD_TODOS,
+      items,
+    };
+    const clearAction = {
+      type: CLEAR_COMPLETED,
+    };
+
+    store.dispatch(loadAction);
+    store.dispatch(clearAction);
+
+    expect(store.getState()).toHaveLength(1);
   });
 });
