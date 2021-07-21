@@ -83,21 +83,4 @@ describe('Button', () => {
 
     expect(onToggle).toBeCalled();
   });
-
-  test('drag button should swap items', () => {
-    const onSwap = jest.fn();
-    const item = {
-      index: 0,
-      description: 'Testing',
-      completed: false,
-      onSwap,
-    };
-
-    const node = listItemComponent(item);
-    const button = node.querySelector('.drag-button');
-    const event = new DragEvent('drop');
-    button.dispatchEvent(event);
-
-    expect(onSwap).toBeCalled();
-  });
 });
