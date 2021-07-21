@@ -17,7 +17,6 @@ test('Add one new item to the DOM list', () => {
 describe('Edit input', () => {
   test('should update item on return', () => {
     const onEdit = jest.fn();
-
     const item = {
       index: 0,
       description: 'Testing',
@@ -35,7 +34,6 @@ describe('Edit input', () => {
 
   test('should update item on blur', () => {
     const onEdit = jest.fn();
-
     const item = {
       index: 0,
       description: 'Testing',
@@ -55,7 +53,6 @@ describe('Edit input', () => {
 describe('Button', () => {
   test('delete should remove item on click', () => {
     const onDelete = jest.fn();
-
     const item = {
       index: 0,
       description: 'Testing',
@@ -73,7 +70,6 @@ describe('Button', () => {
 
   test('toggle button should toggle the completed status', () => {
     const onToggle = jest.fn();
-
     const item = {
       index: 0,
       description: 'Testing',
@@ -86,5 +82,22 @@ describe('Button', () => {
     button.click();
 
     expect(onToggle).toBeCalled();
+  });
+
+  test('drag button should swap items', () => {
+    const onSwap = jest.fn();
+    const item = {
+      index: 0,
+      description: 'Testing',
+      completed: false,
+      onSwap,
+    };
+
+    const node = listItemComponent(item);
+    const button = node.querySelector('.drag-button');
+    const event = new DragEvent('drop');
+    button.dispatchEvent(event);
+
+    expect(onSwap).toBeCalled();
   });
 });
