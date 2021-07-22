@@ -50,37 +50,37 @@ describe('Edit input', () => {
   });
 });
 
- describe('Button', () => {
-   test('delete should remove item on click', () => {
-     const onDelete = jest.fn();
-     const item = {
-       index: 0,
-       description: 'Testing',
-       completed: false,
-       onDelete,
-     };
-
-     const node = listItemComponent(item);
-     const button = node.querySelector('.delete-btn');
-     const event = new MouseEvent('mousedown');
-     button.dispatchEvent(event);
-
-     expect(onDelete).toBeCalled();
-   });
-
-   test('toggle button should toggle the completed status', () => {
-     const onToggle = jest.fn();
-     const item = {
+describe('Button', () => {
+  test('delete should remove item on click', () => {
+    const onDelete = jest.fn();
+    const item = {
       index: 0,
-       description: 'Testing',
-       completed: false,
-       onToggle,
-     };
+      description: 'Testing',
+      completed: false,
+      onDelete,
+    };
 
-     const node = listItemComponent(item);
-     const button = node.querySelector('.toggle');
-     button.click();
+    const node = listItemComponent(item);
+    const button = node.querySelector('.delete-btn');
+    const event = new MouseEvent('mousedown');
+    button.dispatchEvent(event);
 
-     expect(onToggle).toBeCalled();
-   });
- });
+    expect(onDelete).toBeCalled();
+  });
+
+  test('toggle button should toggle the completed status', () => {
+    const onToggle = jest.fn();
+    const item = {
+      index: 0,
+      description: 'Testing',
+      completed: false,
+      onToggle,
+    };
+
+    const node = listItemComponent(item);
+    const button = node.querySelector('.toggle');
+    button.click();
+
+    expect(onToggle).toBeCalled();
+  });
+});
