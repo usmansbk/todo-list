@@ -12,7 +12,7 @@ function iconButton(name) {
   return node;
 }
 
-function listItemComponent({
+export function listItemComponent({
   index, description, completed, onToggle, onSwap, onEdit, onDelete,
 }) {
   const node = document.createElement('li');
@@ -78,7 +78,7 @@ function listItemComponent({
 
   // Delete Todo item
   const deleteButton = iconButton('delete_outline');
-  deleteButton.classList.add('opacity-5', 'hide');
+  deleteButton.classList.add('opacity-5', 'hide', 'delete-btn');
   deleteButton.addEventListener('mousedown', () => {
     onDelete(index);
   });

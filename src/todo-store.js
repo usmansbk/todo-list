@@ -72,5 +72,7 @@ class TodoStore {
   }
 }
 
+export const Store = TodoStore;
+
 const store = new TodoStore();
 export default store;
